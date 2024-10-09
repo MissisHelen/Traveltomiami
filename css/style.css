@@ -1,0 +1,117 @@
+/*reset*/
+@import url("reset.css");
+/*fonts*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:regular,400,700,&display=swap);
+.body {
+    font-family: "Roboto", sans-serif;
+    color: #3E3E3E;
+}
+.wrapper {
+    min-height: 100%;
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+}
+.wrapper>main {
+    flex-grow: 1;
+}
+[class*="__container"] {
+    max-width: 1020px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+/*////////////////MENUHEADER///////////////////////////////*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+.header__container {
+    max-width: 100%;
+    background-color: #69d398;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header__logo {}
+.header__phone {}
+.header__text {}
+.header__menu {}
+.menu__icon {}
+.menu__body {}
+.menu {
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+}
+.menu__list {}
+.menu__item {
+    color: #fff;
+}
+.menu__link {
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0.09em;
+    gap: 48px;
+}
+.menu__actions {}
+.actions-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.actions-menu__phone {
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: 0.17em;
+    margin-top: 48px;
+}
+.actions-menu__call {
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: 0.17em;
+}
+/*////////////////Right///////////////////////////////*/
+.phone-header {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    padding-left: 16px;
+}
+.phone-header::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url("../img/header/01.svg") no-repeat center center / cover;
+}
+.phone-header:hover .phone-header__text {
+    opacity: 1;
+    pointer-events: all;
+}
+.phone-header__text {
+    position: absolute;
+    white-space: nowrap;
+    right: 40px;
+    pointer-events: none;
+    opacity: 0;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    color: #fff;
+    transition: opacity 0.3s;
+}
+@media (max-width: 767.98px) {
+    .phone-header {
+        padding-left: 0;
+    }
+    .phone-header__text {
+        display: none;
+    }
+}
