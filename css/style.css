@@ -2,7 +2,6 @@
 @import url("reset.css");
 /*fonts*/
 @import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700&display=swap");
-
 body {
     font-family: "Roboto", sans-serif;
     color: #3E3E3E;
@@ -17,13 +16,20 @@ body {
     flex-grow: 1;
 }
 [class*="__container"] {
-    max-width: 1020px;
+    max-width: 1060px;
     padding: 0 20px;
     margin: 0 auto;
 }
+._lock {
+    overflow: hidden;
+}
 /*////////////////MENUBURGER///////////////////////////////*/
 .header {
-    background-color: #69d398;
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 .header__container {
     display: flex;
@@ -237,12 +243,255 @@ body {
 ._active.menu__icon span {
     opacity: 0;
 }
-/*///////////////
-@media (max-width:1200px){
-    .menu__link{
-    font-size: 22px;
-    line-height: 250%;
-    letter-spacing: 0.09em;
-    gap: 48px;
+/*//////////////////////////////////////////////////////MAIN//////////////////////////////////*/
+.page {}
+.main {
+    position: relative;
+    height: 669px;
 }
-}/////////////////////////////*/
+.main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('../img/main/picture.jpg') no-repeat center center / cover;
+}
+.main__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-top: 128px;
+    padding-bottom: 49px;
+}
+.main__title {
+    position: relative;
+    font-size: 80px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.02em;
+    padding-top: 24px;
+}
+.main__title::before {
+    content: "";
+    position: absolute;
+    border-radius: 2px;
+    width: 40px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+}
+@media (max-width: 767.98px) {
+    .main {
+        height: 568px;
+    }
+    .main__container {
+        padding-bottom: 80px;
+        padding-top: 96px;
+    }
+    .main__title {
+        font-size: 46px;
+        line-height: 87%;
+    }
+}
+.page__miami {}
+.miami {
+    padding-top: 135px;
+    padding-bottom: 104px;
+}
+.miami__container {
+    display: flex;
+    gap: 24px;
+}
+.miami__title {
+    max-width: 324px;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: -0.03em;
+    color: #000;
+}
+.miami__title--link {
+    display: inline-flex;
+    position: relative;
+    color: #0075FF
+}
+.miami__title--link::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -7px;
+    left: 0;
+    background-color: #0075FF;
+    opacity: 0;
+    border-radius: 2px;
+    transition: opacity .3s;
+}
+@media (any-hover: hover) {
+    .miami__title--link:hover::before {
+        opacity: 1;
+    }
+}
+.miami__item {}
+.item-miami {
+    flex: 1 1 50%;
+}
+.item-miami__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 125%;
+    color: #0075FF;
+}
+.item-miami__title:not(:last-child) {
+    margin-bottom: 16px;
+}
+.item-miami__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 169%;
+}
+.item-miami__text--bold {
+    font-weight: 700;
+}
+@media (max-width: 767.98px) {
+    .miami {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+    .miami__container {
+        flex-direction: column;
+        gap: 48px;
+    }
+    .miami__title {
+        font-size: 36px;
+        font-size: 36px;
+        letter-spacing: -0.04em;
+        color: #000;
+    }
+}
+/*//////////////////////////////////////////////////////GALLERY//////////////////////////////////*/
+.page__gallery {}
+.gallery {}
+.gallery__container {
+    display: grid;
+}
+.gallery__title {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing: -0.03em;
+    color: #000;
+}
+.gallery__title:not(:last-child) {
+    margin-bottom: 56px;
+}
+.gallery__title::before {
+    display: block;
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: url('../img/galery/icons.svg') no-repeat center center / contain;
+}
+.gallery__body {}
+.body-gallery {
+    display: grid;
+    gap: 40px;
+}
+.body-gallery:not(:last-child) {
+    margin-bottom: 32px;
+}
+.body-gallery__block {
+    display: grid;
+    gap: 24px;
+}
+.body-gallery__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+.body-gallery__item {
+    position: relative;
+    padding-top: 51.405622%;
+}
+.body-gallery__picture {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+@media (any-hover: hover) {
+    .body-gallery__item:hover .body-gallery__picture {
+        transform: scale(1.05);
+    }
+}
+.gallery__text {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 169%;
+}
+.gallery__text span {
+    color: #0075FF;
+}
+.gallery__button {
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 8px;
+    border: 2px solid #0075FF;
+    font-weight: 700;
+    line-height: 87%;
+    text-align: center;
+    color: #0075FF;
+    padding: 19px 45px;
+    transition: border 0.3s ease-in-out 0s, color 0.3s ease-in-out 0s, background-color 0.3s ease-in-out 0s;
+}
+.gallery__button:hover {
+    color: #fff;
+    background-color: #5e97d8;
+    border: 2px solid transparent;
+}
+@media (min-width:992px) {
+    .body-gallery__item--big {
+        grid-column: span 2;
+        padding-top: 38.095238%;
+    }
+    .body-gallery__item--small {
+        padding-top: 79.012346%;
+    }
+}
+@media (min-width:768px) {
+    .gallery__button {
+        justify-self: center;
+    }
+}
+@media (max-width: 991.98px) {
+    .gallery__title:not(:last-child) {
+        margin-bottom: 32px;
+    }
+    .body-gallery__items {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 20px;
+    }
+}
+@media (max-width: 767.98px) {
+    .gallery__title {
+        font-size: 36px;
+    }
+    .body-gallery {
+        gap: 32px;
+    }
+    .body-gallery__block {
+        gap: 16px;
+    }
+    .body-gallery__item {
+        padding-top: 100%;
+    }
+}
